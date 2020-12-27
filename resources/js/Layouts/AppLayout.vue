@@ -17,6 +17,9 @@
                             <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
                                 new Dashboard
                             </jet-nav-link>
+                            <jet-nav-link :href="route('tweets.index')" :active="route().current('tweets.index')">
+                                Tweet
+                            </jet-nav-link>
                         </div>
                     </div>
 
