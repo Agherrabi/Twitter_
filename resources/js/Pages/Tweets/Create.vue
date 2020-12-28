@@ -1,12 +1,12 @@
 <template>
         <div class="py-6">
             <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
-                <form >
-                    <textarea placeholder="write something here " class="rounded-lg border border-gray-200 w-full p-2 font-semibold resize-none focus:outline-none">
+                <form @submit.prevent="tweetstore">
+                    <textarea v-model="content" placeholder="write something here " class="rounded-lg border border-gray-200 w-full p-2 font-semibold resize-none focus:outline-none">
 
                     </textarea>
-                    <span class="my-5 text-red-500">
-
+                    <span class="my-5 text-red-500" v-if="$page.errors.content">
+                        {{$page.errors.content}}
                     </span>
                     <div class="flex items-center space-x-4 justify-end mt-3">
                         <p class="text-sm text-gray-400 font-thin">300 character remaining</p>
@@ -23,6 +23,19 @@
     export default {
         components:{
             ButtonVue,
-        }
+        },
+
+        data(){
+            return{
+                content: ''
+            }
+        },
+
+        methods:{
+            tweetstore(){
+                    this.$inertia.post('tweets',{content:this.content},{preserveState:false})
+            }
+        },
+
     }
 </script>

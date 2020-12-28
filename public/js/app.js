@@ -4268,6 +4268,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     ButtonVue: _Jetstream_Button__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      content: ''
+    };
+  },
+  methods: {
+    tweetstore: function tweetstore() {
+      this.$inertia.post('tweets', {
+        content: this.content
+      }, {
+        preserveState: false
+      });
+    }
   }
 });
 
@@ -49006,35 +49020,71 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "py-6" }, [
     _c("div", { staticClass: "max-w-3xl mx-auto sm:px-6 lg:px-8" }, [
-      _c("form", [
-        _c("textarea", {
-          staticClass:
-            "rounded-lg border border-gray-200 w-full p-2 font-semibold resize-none focus:outline-none",
-          attrs: { placeholder: "write something here " }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "my-5 text-red-500" }),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "flex items-center space-x-4 justify-end mt-3" },
-          [
-            _c("p", { staticClass: "text-sm text-gray-400 font-thin" }, [
-              _vm._v("300 character remaining")
-            ]),
-            _vm._v(" "),
-            _c(
-              "button-vue",
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.tweetstore($event)
+            }
+          }
+        },
+        [
+          _c("textarea", {
+            directives: [
               {
-                staticClass:
-                  "bg-blue-500 hover:bg-blue-800 rounded-full font-extrabold"
-              },
-              [_vm._v("Tweet")]
-            )
-          ],
-          1
-        )
-      ])
+                name: "model",
+                rawName: "v-model",
+                value: _vm.content,
+                expression: "content"
+              }
+            ],
+            staticClass:
+              "rounded-lg border border-gray-200 w-full p-2 font-semibold resize-none focus:outline-none",
+            attrs: { placeholder: "write something here " },
+            domProps: { value: _vm.content },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.content = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.$page.errors.content
+            ? _c("span", { staticClass: "my-5 text-red-500" }, [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.$page.errors.content) +
+                    "\n            "
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "flex items-center space-x-4 justify-end mt-3" },
+            [
+              _c("p", { staticClass: "text-sm text-gray-400 font-thin" }, [
+                _vm._v("300 character remaining")
+              ]),
+              _vm._v(" "),
+              _c(
+                "button-vue",
+                {
+                  staticClass:
+                    "bg-blue-500 hover:bg-blue-800 rounded-full font-extrabold"
+                },
+                [_vm._v("Tweet")]
+              )
+            ],
+            1
+          )
+        ]
+      )
     ])
   ])
 }

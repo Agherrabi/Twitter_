@@ -20,6 +20,12 @@ Route::get('/', function () {
 
 Route::get('tweets',[TweetController::class,'index'])->name('tweets.index');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia\Inertia::render('Dashboard');
-})->name('dashboard');
+
+
+Route::group(['middleware'=>['auth:sanctum','verified']],function(){
+    Route::get('/dashboard', function () {
+        return Inertia\Inertia::render('Dashboard');
+    })->name('dashboard');
+    Route::post('tweets',[TweetController::class,'store'])->name('tweets.store');
+
+});
