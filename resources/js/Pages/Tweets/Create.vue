@@ -19,8 +19,10 @@
 
 <script>
 
-
+    import ButtonVue from '@/Jetstream/Button'
     export default {
-
+        components:{
+            ButtonVue,
+        }
     }
 </script>
