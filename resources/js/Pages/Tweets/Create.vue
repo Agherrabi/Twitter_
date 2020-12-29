@@ -9,8 +9,8 @@
                         {{$page.errors.content}}
                     </span>
                     <div class="flex items-center space-x-4 justify-end mt-3">
-                        <p class="text-sm text-gray-400 font-thin">300 character remaining</p>
-                        <button-vue class="bg-blue-500 hover:bg-blue-800 rounded-full font-extrabold">Tweet</button-vue>
+                        <p class="text-sm text-gray-400 font-thin" :class="{'text-red-500':remainingCharacter<0}" >{{remainingCharacter}} character remaining</p>
+                        <button-vue :disabled="!canSubmit" class="bg-blue-500 hover:bg-blue-800 rounded-full font-extrabold">Tweet</button-vue>
                     </div>
                 </form>
             </div>
@@ -27,7 +27,7 @@
 
         data(){
             return{
-                content: ''
+                content: '',
             }
         },
 
@@ -37,5 +37,22 @@
             }
         },
 
+        computed:{
+                remainingCharacter (){
+                    return 300 - this.content.length;
+                },
+                canSubmit (){
+                    return this.content.length && this.remainingCharacter > 0
+                }
+
+        }
+
+
     }
 </script>
+<style scoped>
+    button:disabled{
+        opacity :50%;
+        cursor: not-allowed;
+    }
+</style>
