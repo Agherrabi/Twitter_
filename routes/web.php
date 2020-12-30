@@ -31,4 +31,5 @@ Route::group(['middleware'=>['auth:sanctum','verified']],function(){
     Route::post('/unfollows/{user:id}',[TweetController::class,'unfollows'])->name('tweets.unPfollows');
 
     Route::get('/followings',[TweetController::class,'followings'])->name('tweets.followings');
+    Route::get('/profil/{user:name}',[TweetController::class,'profil'])->name('tweets.profil');
 });

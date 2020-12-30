@@ -13,7 +13,7 @@
                     <img class="h-16 w-16 object-cover rounded-full" :src="tweet.user.profile_photo_url">
                     <div class="flex flex-col w-2/3">
                     <div>
-                        <a class="text-sm text-gray-900 font-bold hover:text-blue-400" :href="`/profile/${tweet.user.name}`">
+                        <a class="text-sm text-gray-900 font-bold hover:text-blue-400" :href="`/profil/${tweet.user.name}`">
                             {{ tweet.user.name }}
                         </a>
                         <span class="font-thin text-gray-400">· le {{ tweet.created_at }}</span>
