@@ -15,10 +15,13 @@
                         <!-- Navigation Links -->
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-                                new Dashboard
+                                Dashboard
                             </jet-nav-link>
                             <jet-nav-link :href="route('tweets.index')" :active="route().current('tweets.index')">
-                                Tweet
+                                Tweets
+                            </jet-nav-link>
+                            <jet-nav-link :href="route('tweets.followings')" :active="route().current('tweets.followings')">
+                                Followings
                             </jet-nav-link>
                         </div>
                     </div>
