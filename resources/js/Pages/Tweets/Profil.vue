@@ -6,7 +6,7 @@
                     {{profilUser.name}}
                 </h2>
                 <div v-if="profilUser.id != $page.user.id">
-                    <inertia-link v-if="!profilUser.is_followed" as="button" :href="`/follows/${porofilUser.id}`" method="POST" class="bg-white text-blue-500 cursor-pointer px-5 py-2 hover:text-white border border-blue-500 leading-tight hover:bg-blue-500 rounded-full font-extrabold transition-all duration-300" preserve-scroll>Follow</inertia-link>
+                    <inertia-link v-if="!profilUser.is_followed" as="button" :href="`/follows/${profilUser.id}`" method="POST" class="bg-white text-blue-500 cursor-pointer px-5 py-2 hover:text-white border border-blue-500 leading-tight hover:bg-blue-500 rounded-full font-extrabold transition-all duration-300" preserve-scroll>Follow</inertia-link>
 
                 </div>
             </div>

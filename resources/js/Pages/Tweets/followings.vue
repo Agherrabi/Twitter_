@@ -8,11 +8,11 @@
 
 
         <div class="py-12">
-               <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
-                <div v-for="tweet in followings" v-bind:key="tweet.id" class="flex items-center space-x-4 bg-white overflow-hidden rounded rounded-b-none border-b-2 border-gray-200 py-6 px-4">
+               <div  class="max-w-3xl mx-auto sm:px-6 lg:px-8" v-if="followings.length>0">
+                <div v-for="tweet in followings" v-bind:key="tweet.id"  class="flex items-center space-x-4 bg-white overflow-hidden rounded rounded-b-none border-b-2 border-gray-200 py-6 px-4">
                     <img class="h-16 w-16 object-cover rounded-full"   :src="tweet.user.profile_photo_url">
                     <div class="flex flex-col w-2/3">
-                    <div>
+                    <div >
                         <a class="text-sm text-gray-900 font-bold hover:text-blue-400" :href="`/profile/${tweet.user.name}`">
                             {{ tweet.user.name }}
                         </a>
@@ -25,6 +25,7 @@
                     </div>
                 </div>
             </div>
+            <div v-else  class="max-w-3xl mx-auto sm:px-6 lg:px-8"><span class="font-thin text-gray-400">Your following list is Empty! start following some people</span></div>
         </div>
     </app-layout>
 </template>

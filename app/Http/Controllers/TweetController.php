@@ -47,7 +47,7 @@ class TweetController extends Controller
     public function follows(User $user)
     {
         auth()->user()->followings()->attach($user->id);
-        return Redirect::route('tweets.index');
+        return redirect()->back();
     }
     public function unfollows(User $user)
     {

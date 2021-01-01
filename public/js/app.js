@@ -4453,6 +4453,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -50081,7 +50082,7 @@ var render = function() {
                                   "bg-white text-blue-500 cursor-pointer px-5 py-2 hover:text-white border border-blue-500 leading-tight hover:bg-blue-500 rounded-full font-extrabold transition-all duration-300",
                                 attrs: {
                                   as: "button",
-                                  href: "/follows/" + _vm.porofilUser.id,
+                                  href: "/follows/" + _vm.profilUser.id,
                                   method: "POST",
                                   "preserve-scroll": ""
                                 }
@@ -50211,79 +50212,87 @@ var render = function() {
     [
       _vm._v(" "),
       _c("div", { staticClass: "py-12" }, [
-        _c(
-          "div",
-          { staticClass: "max-w-3xl mx-auto sm:px-6 lg:px-8" },
-          _vm._l(_vm.followings, function(tweet) {
-            return _c(
+        _vm.followings.length > 0
+          ? _c(
               "div",
-              {
-                key: tweet.id,
-                staticClass:
-                  "flex items-center space-x-4 bg-white overflow-hidden rounded rounded-b-none border-b-2 border-gray-200 py-6 px-4"
-              },
-              [
-                _c("img", {
-                  staticClass: "h-16 w-16 object-cover rounded-full",
-                  attrs: { src: tweet.user.profile_photo_url }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "flex flex-col w-2/3" }, [
-                  _c("div", [
-                    _c(
-                      "a",
-                      {
-                        staticClass:
-                          "text-sm text-gray-900 font-bold hover:text-blue-400",
-                        attrs: { href: "/profile/" + tweet.user.name }
-                      },
-                      [
-                        _vm._v(
-                          "\n                        " +
-                            _vm._s(tweet.user.name) +
-                            "\n                    "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "font-thin text-gray-400" }, [
-                      _vm._v("· le " + _vm._s(tweet.created_at))
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "text-sm text-gray-400 font-thin" },
-                    [_vm._v(_vm._s(tweet.content))]
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
+              { staticClass: "max-w-3xl mx-auto sm:px-6 lg:px-8" },
+              _vm._l(_vm.followings, function(tweet) {
+                return _c(
                   "div",
-                  { staticClass: "w-40" },
+                  {
+                    key: tweet.id,
+                    staticClass:
+                      "flex items-center space-x-4 bg-white overflow-hidden rounded rounded-b-none border-b-2 border-gray-200 py-6 px-4"
+                  },
                   [
+                    _c("img", {
+                      staticClass: "h-16 w-16 object-cover rounded-full",
+                      attrs: { src: tweet.user.profile_photo_url }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "flex flex-col w-2/3" }, [
+                      _c("div", [
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "text-sm text-gray-900 font-bold hover:text-blue-400",
+                            attrs: { href: "/profile/" + tweet.user.name }
+                          },
+                          [
+                            _vm._v(
+                              "\n                        " +
+                                _vm._s(tweet.user.name) +
+                                "\n                    "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "font-thin text-gray-400" }, [
+                          _vm._v("· le " + _vm._s(tweet.created_at))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "text-sm text-gray-400 font-thin" },
+                        [_vm._v(_vm._s(tweet.content))]
+                      )
+                    ]),
+                    _vm._v(" "),
                     _c(
-                      "inertia-link",
-                      {
-                        staticClass:
-                          "bg-white text-blue-500 cursor-pointer px-5 py-2 flex-shrink-0 hover:text-white border border-blue-500 leading-tight hover:bg-blue-500 rounded-full font-extrabold transition-all duration-300",
-                        attrs: {
-                          as: "button",
-                          href: "/unfollows/" + tweet.user.id,
-                          method: "POST",
-                          "preserve-scroll": ""
-                        }
-                      },
-                      [_vm._v("Unfollow")]
+                      "div",
+                      { staticClass: "w-40" },
+                      [
+                        _c(
+                          "inertia-link",
+                          {
+                            staticClass:
+                              "bg-white text-blue-500 cursor-pointer px-5 py-2 flex-shrink-0 hover:text-white border border-blue-500 leading-tight hover:bg-blue-500 rounded-full font-extrabold transition-all duration-300",
+                            attrs: {
+                              as: "button",
+                              href: "/unfollows/" + tweet.user.id,
+                              method: "POST",
+                              "preserve-scroll": ""
+                            }
+                          },
+                          [_vm._v("Unfollow")]
+                        )
+                      ],
+                      1
                     )
-                  ],
-                  1
+                  ]
                 )
-              ]
+              }),
+              0
             )
-          }),
-          0
-        )
+          : _c("div", { staticClass: "max-w-3xl mx-auto sm:px-6 lg:px-8" }, [
+              _c("span", { staticClass: "font-thin text-gray-400" }, [
+                _vm._v(
+                  "Your following list is Empty! start following some people"
+                )
+              ])
+            ])
       ])
     ]
   )
