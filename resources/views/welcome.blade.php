@@ -22,12 +22,13 @@
         </style>
 
     </head>
-    <body class="antialiased">
+    <body class="antialiased ">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
             @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block sm:text-center">
                     @auth
                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
+                        <a href="{{ url('/tweets') }}" class="ml-4 text-sm text-gray-700 underline">Tweets</a>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 
@@ -37,16 +38,6 @@
                     @endauth
                 </div>
             @endif
-
-            <div class="md:flex-shrink-0">
-                <img class="h-48 w-full object-cover md:w-48" src="{{url('twitter.png')}}" alt="Man loo">
-            </div>
-             <!--   <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <img src="{{url('twitter.png')}}" class="w-16 md:w-32 lg:w-48" alt="">
-                </div> -->
-
-
-
 
 
         </div>
